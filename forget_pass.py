@@ -35,41 +35,41 @@ try:
 
 
     #To check the email and set new password
-    driver.execute_script("window.open('');")
+    #driver.execute_script("window.open('');")
 
     # Switch to the new tab
-    driver.switch_to.window(driver.window_handles[1])
+    #driver.switch_to.window(driver.window_handles[1])
 
     # Open another URL in the new tab
-    driver.get("https://mail.google.com/mail/u/0/#inbox") #lands on the email inbox page
+    #driver.get("https://mail.google.com/mail/u/0/#inbox") #lands on the email inbox page
 
     #Enter email address
-    gmail_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='identifierId']")))
-    gmail_field.send_keys("hshanto.test@gmail.com") 
-    time.sleep(2)
+    # gmail_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='identifierId']")))
+    # gmail_field.send_keys("hshanto.test@gmail.com") 
+    # time.sleep(2)
 
-    #Click on Next button
-    next_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='identifierNext']/div/button/div[3]"))
-    )
-    next_button.click()
+    # #Click on Next button
+    # next_button = WebDriverWait(driver, 20).until(
+    #     EC.element_to_be_clickable((By.XPATH, "//*[@id='identifierNext']/div/button/div[3]"))
+    # )
+    # next_button.click()
 
-    #Enter password
-    password_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='password']/div[1]/div/div[1]/input")))
-    password_field.send_keys("Shanto@198503") 
-    time.sleep(2)
+    # #Enter password
+    # password_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.XPATH, "//*[@id='password']/div[1]/div/div[1]/input")))
+    # password_field.send_keys("Shanto@198503") 
+    # time.sleep(2)
 
-    #Again click on Next button
-    next_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='passwordNext']/div/button/div[3]"))
-    )
-    next_button.click()
+    # #Again click on Next button
+    # next_button = WebDriverWait(driver, 20).until(
+    #     EC.element_to_be_clickable((By.XPATH, "//*[@id='passwordNext']/div/button/div[3]"))
+    # )
+    # next_button.click()
 
-    #Click on Continue button
-    continue_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='yDmH0d']/div[1]/div[1]/div[2]/div/div/div[3]/div/div[1]/div/div/button/div[3]"))
-    )
-    continue_button.click()
+    # #Click on Continue button
+    # continue_button = WebDriverWait(driver, 20).until(
+    #     EC.element_to_be_clickable((By.XPATH, "//*[@id='yDmH0d']/div[1]/div[1]/div[2]/div/div/div[3]/div/div[1]/div/div/button/div[3]"))
+    # )
+    # continue_button.click()
 
 
 
