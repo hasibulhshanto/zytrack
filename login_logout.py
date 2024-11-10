@@ -4,8 +4,12 @@ import time
 from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 
-# Set up the WebDriver (Chrome in this example)
+# Set up the WebDriver
 driver = webdriver.Chrome()  # Ensure chromedriver is in PATH or provide the full path
+
+
+# Maximize the browser window
+driver.maximize_window()
 
 try:
     # Open the login page
