@@ -13,16 +13,20 @@ try:
     driver.get("https://zystg.dinnova.ch/login")
 
     # Wait until the login fields are available, then log in
-    email_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "email")))
-    password_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "password")))
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "email"))).send_keys("hshanto.test@gmail.com")
+    WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "password"))).send_keys("Info@123")
+
+
+    # email_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "email")))
+    # password_field = WebDriverWait(driver, 20).until(EC.presence_of_element_located((By.ID, "password")))
+
+    # email_field.send_keys("hshanto.test@gmail.com")
+    # time.sleep(2)
+    # password_field.send_keys("Info@123")
+    time.sleep(2)
     login_button = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div[2]/form/div[3]/button"))
     )
-
-    email_field.send_keys("hshanto.test@gmail.com")
-    time.sleep(2)
-    password_field.send_keys("Info@123")
-    time.sleep(2)
     login_button.click()
 
     # Wait for the profile page to load and navigate to profile page
@@ -42,10 +46,11 @@ try:
     WebDriverWait(driver, 20).until(EC.url_contains("/profile"))
 
     # To upload image
-    uploadphoto_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[1]/div/div[2]/div/div/label[2]"))
-    )
-    uploadphoto_button.click()
+    # uploadphoto_button = WebDriverWait(driver, 20).until(
+    #     EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[1]/div/div[2]/div/div/label[2]"))
+        
+    # )
+    # uploadphoto_button.click()
 
     # Locate the file input element and upload the file
     file_input = WebDriverWait(driver, 20).until(
@@ -55,16 +60,16 @@ try:
     file_input.send_keys(file_path)
 
     # Wait for the cropping popup to appear (adjust the XPath as needed)
-    crop_popup = WebDriverWait(driver, 20).until(
-        EC.visibility_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[1]/div/div[2]/div[2]/div"))
-    )
+    # crop_popup = WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[1]/div/div[2]/div[2]/div"))
+    # )
 
     # Perform cropping actions - this depends on the HTML structure of the crop popup
     # Example: Click and drag to set the cropping area (requires JS if it's a draggable crop area)
     
     # Example of clicking a Crop button
     crop_button = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[1]/div/div[2]/div[2]/div/div[3]/button"))
+        EC.element_to_be_clickable((By.XPATH, "/html/body/div[1]/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[1]/div/div[2]/div[2]/div/div[3]/button"))
     )
     crop_button.click()
 
