@@ -7,4 +7,3 @@ process2 = subprocess.Popen(["python", "login_logout.py"])
 # Wait for both processes to complete
 process1.wait()
 process2.wait()
-####Suman
