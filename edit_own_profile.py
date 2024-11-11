@@ -84,17 +84,17 @@ try:
         exit()
 
     # Check if options are found and select the correct one
-    target_option = "German"
-    option_found = False
-    for option in options:
-        if option.text == target_option:
-            option.click()  # Click the option
-            print(f"Changed selection to: {target_option}")
-            option_found = True
-            break
+    # target_option = "German"
+    # option_found = False
+    # for option in options:
+    #     if option.text == target_option:
+    #         option.click()  # Click the option
+    #         print(f"Changed selection to: {target_option}")
+    #         option_found = True
+    #         break
 
-    if not option_found:
-        print(f"Option '{target_option}' not found in the dropdown.")
+    # if not option_found:
+    #     print(f"Option '{target_option}' not found in the dropdown.")
 
 finally:
     # Close the browser
