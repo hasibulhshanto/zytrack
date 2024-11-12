@@ -1,6 +1,9 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
 from selenium.webdriver.support.ui import WebDriverWait, Select
+from selenium.webdriver.common.action_chains import ActionChains
+from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import WebDriverWait
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
@@ -30,6 +33,10 @@ try:
         EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[1]/div[2]/div[2]/div[2]"))
     )
     userinfo_button.click()
+    
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To click on My Profile button    
 
     myprofile_button = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[1]/div[2]/div[3]/div/ul/li[1]"))
@@ -37,6 +44,10 @@ try:
     myprofile_button.click()
 
     WebDriverWait(driver, 20).until(EC.url_contains("/profile"))
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To upload and crop profile image    
 
     # Locate the file input element and upload the file
     file_input = WebDriverWait(driver, 20).until(
@@ -54,6 +65,11 @@ try:
     # Wait to ensure the upload and crop are complete
     time.sleep(5)
 
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To update first name    
+
     first_name_input = WebDriverWait(driver, 20).until(
         EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[2]/div/div/input"))
     )
@@ -61,6 +77,10 @@ try:
     first_name_input.send_keys("Shanto Hasan")
 
     time.sleep(2)
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To update last name
 
     # Wait for the last name input to be clickable, then update it
     last_name_input = WebDriverWait(driver, 20).until(
@@ -70,6 +90,10 @@ try:
     last_name_input.send_keys("Hasibul")
 
     time.sleep(2)
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To change language from the dropdown
 
     # Wait for the Zytrack Language dropdown to be visible and click it
     languagedd_button = WebDriverWait(driver, 20).until(
@@ -92,7 +116,7 @@ try:
             EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[5]/div/div/div[2]/div[1]"))  # XPath for German option
         )
         german_option.click()
-    elif "Deutsch" in current_language:
+    elif "German" in current_language:
         # If German is selected, select English
         english_option = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[5]/div/div/div[2]/div[2]"))  # XPath for English option
@@ -115,6 +139,33 @@ try:
     # german_option.click()
 
     # Optional: Wait to verify the action
+    time.sleep(2)
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To scroll down and select a country code
+
+    # Wait until the dropdown is visible, and scroll the page if necessary
+    dropdown_element = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div/div/div"))  # Replace with your dropdown's XPath
+    )
+
+    # Scroll down to the dropdown element if it's not in the view
+    actions = ActionChains(driver)
+    actions.move_to_element(dropdown_element).perform()
+
+    # Click the dropdown to reveal options
+    dropdown_element.click()
+
+    # Wait until the options are available
+    country_option = WebDriverWait(driver, 20).until(
+        EC.presence_of_element_located((By.XPATH, "//*[contains(text(), '+93')]"))  # Replace with the country code you want to select
+    )
+
+    # Click on the option
+    country_option.click()
+
+    # Optional: wait for some time to see the action
     time.sleep(2)
 
     
