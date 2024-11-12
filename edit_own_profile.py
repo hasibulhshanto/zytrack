@@ -1,6 +1,6 @@
 from selenium import webdriver
 from selenium.webdriver.common.by import By
-from selenium.webdriver.support.ui import WebDriverWait
+from selenium.webdriver.support.ui import WebDriverWait, Select
 from selenium.webdriver.support import expected_conditions as EC
 import time
 
@@ -54,47 +54,70 @@ try:
     # Wait to ensure the upload and crop are complete
     time.sleep(5)
 
-    # Update inputs and profile information
-    WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/input[1]"))
-    ).clear().send_keys("Shanto Hasan")
-
-    time.sleep(2)
-    
-    WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[2]/div[1]/div[3]/div[1]/div[1]/input[1]"))
-    ).clear().send_keys("Hasibul")
-
-    time.sleep(2)
-
-    # Locate and click on the custom dropdown (div element)
-    dropdown_element = WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.XPATH, "/html[1]/body[1]/div[1]/div[1]/div[2]/div[1]/div[2]/div[1]/div[1]/div[1]/div[3]/form[1]/div[1]/div[2]/div[1]/div[5]/div[1]/div[1]/div[1]"))
+    first_name_input = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[2]/div/div/input"))
     )
-    dropdown_element.click()
+    first_name_input.clear()
+    first_name_input.send_keys("Shanto Hasan")
 
-    # Wait for options to appear (check for visibility of dropdown options)
-    try:
-        options = WebDriverWait(driver, 20).until(
-            EC.visibility_of_all_elements_located((By.XPATH, "//div[@role='option']"))
+    time.sleep(2)
+
+    # Wait for the last name input to be clickable, then update it
+    last_name_input = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[3]/div/div/input")) 
+    )
+    last_name_input.clear()
+    last_name_input.send_keys("Hasibul")
+
+    time.sleep(2)
+
+    # Wait for the Zytrack Language dropdown to be visible and click it
+    languagedd_button = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//div[@class='flex items-center justify-between h-[46px] gap-2 px-3 bg-white border cursor-pointer toggler border-input rounded-bl-[0px] rounded-br-[0px] !rounded-[5px]']"))
+    )
+    languagedd_button.click()  # Click to open the dropdown
+
+    # Wait for the currently selected language to be visible
+    selected_language = WebDriverWait(driver, 20).until(
+    EC.visibility_of_element_located((By.XPATH, "//div[@class='text-[13px] overflow-hidden whitespace-nowrap placeholder !text-[#232C2F] flex gap-2']"))
+    )
+
+    # Get the text of the currently selected language
+    current_language = selected_language.text.strip()
+
+    # Check the selected language and select the opposite one
+    if "English" in current_language:
+        # If English is selected, select German
+        german_option = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[5]/div/div/div[2]/div[1]"))  # XPath for German option
         )
-    except Exception as e:
-        print("Error waiting for dropdown options:", e)
-        driver.quit()
-        exit()
+        german_option.click()
+    elif "Deutsch" in current_language:
+        # If German is selected, select English
+        english_option = WebDriverWait(driver, 20).until(
+            EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[5]/div/div/div[2]/div[2]"))  # XPath for English option
+        )
+        english_option.click()
+    else:
+        print("Current language is neither English nor German.")
 
-    # Check if options are found and select the correct one
-    # target_option = "German"
-    # option_found = False
-    # for option in options:
-    #     if option.text == target_option:
-    #         option.click()  # Click the option
-    #         print(f"Changed selection to: {target_option}")
-    #         option_found = True
-    #         break
+    # # Wait for the English & German dropdown options to be visible
+    # WebDriverWait(driver, 20).until(
+    #     EC.visibility_of_all_elements_located((By.XPATH, "//div[@class='text-[13px] overflow-hidden whitespace-nowrap placeholder !text-[#232C2F] flex gap-2']"))
+    # )
 
-    # if not option_found:
-    #     print(f"Option '{target_option}' not found in the dropdown.")
+    # time.sleep(2)
+
+    # # Find and click the option you want to select German
+    # german_option = WebDriverWait(driver, 20).until(
+    #     EC.element_to_be_clickable((By.XPATH, "//div[@id='app']//form//div[1]//div[2]//div[5]//div//div//div[2]//div[1]"))
+    # )
+    # german_option.click()
+
+    # Optional: Wait to verify the action
+    time.sleep(2)
+
+    
 
 finally:
     # Close the browser
