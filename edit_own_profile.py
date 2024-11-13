@@ -35,6 +35,7 @@ try:
     userinfo_button.click()
 
 
+                                                                # Profile Information Section
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # To click on My Profile button    
 
@@ -116,7 +117,7 @@ try:
             EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[5]/div/div/div[2]/div[1]"))  # XPath for German option
         )
         german_option.click()
-    elif "German" in current_language:
+    elif "Deutsch" in current_language:
         # If German is selected, select English
         english_option = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[5]/div/div/div[2]/div[2]"))  # XPath for English option
@@ -185,7 +186,7 @@ try:
     )
 
     # Type the country code or country name in the search box (for example, search for '+1' for the USA)
-    search_input.send_keys("Bangladesh")  # Replace with the country code you want to search for
+    search_input.send_keys("Bangladesch")  # Replace with the country code you want to search for
     time.sleep(2)  # Wait for search results to filter
 
     # After typing, select the country code from the dropdown options
@@ -196,6 +197,38 @@ try:
 
     # Optional: wait for some time to see the action
     time.sleep(2)    
+
+
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To update Phone Number
+
+    # Wait for the Phone Number input to be clickable, then update it
+    phone_number_input = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div/input")) 
+    )
+    phone_number_input.clear()
+    phone_number_input.send_keys("1886670382")
+
+    time.sleep(2)
+
+
+
+                                                                            # Employment Information Section
+#--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+# To update Designation
+
+    # Wait for the Designation input to be clickable, then update it
+    designation_input = WebDriverWait(driver, 20).until(
+        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[2]/div[2]/div/div[1]/div/div/input")) 
+    )
+    designation_input.clear()
+    designation_input.send_keys("Master CM")
+
+    time.sleep(2)
+
+
+
+
 
     
 
