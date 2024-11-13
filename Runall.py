@@ -1,9 +1,11 @@
 import subprocess
 
-# Run both scripts concurrently
-process1 = subprocess.Popen(["python", "forget_pass.py"])
-process2 = subprocess.Popen(["python", "login_logout.py"])
+# List of scripts to run
+scripts = ["forget_pass.py", "login_logout.py", "edit_own_profile.py"]
 
-# Wait for both processes to complete
-process1.wait()
-process2.wait()
+# Start all scripts and store processes in a list
+processes = [subprocess.Popen(["python", script]) for script in scripts]
+
+# Wait for all processes to complete
+for process in processes:
+    process.wait()
