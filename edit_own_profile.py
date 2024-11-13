@@ -174,29 +174,72 @@ try:
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 # To search and select the country code
 
-     # Wait until the dropdown is visible, and click it to open
-    dropdown_element = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div/div/div"))  # Replace with your dropdown's XPath
-    )
-    dropdown_element.click()
 
-    # Wait for the search input box to appear inside the dropdown (if any)
-    search_input = WebDriverWait(driver, 20).until(
-        EC.presence_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div[1]/div/input"))  # Replace with actual search input's XPath
-    )
+    # Locate the element containing the text you want to match
+    element = driver.find_element(By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/label")  # Use the appropriate locator for your element
 
-    # Type the country code or country name in the search box (for example, search for '+1' for the USA)
-    search_input.send_keys("Bangladesch")  # Replace with the country code you want to search for
-    time.sleep(2)  # Wait for search results to filter
+    # Get the text content of the element
+    actual_content = element.text
 
-    # After typing, select the country code from the dropdown options
-    country_option = WebDriverWait(driver, 20).until(
-        EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div[2]/div"))  # Replace with the XPath for the country option you want to select
-    )
-    country_option.click()
+    # Define the expected content
+    expected_content = "Phone"
 
-    # Optional: wait for some time to see the action
-    time.sleep(2)    
+    # Match the actual content with the expected content
+    if actual_content == expected_content:
+            # Wait until the dropdown is visible, and click it to open
+            dropdown_element = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div/div/div"))  # Replace with your dropdown's XPath
+            )
+            dropdown_element.click()
+
+            # Wait for the search input box to appear inside the dropdown (if any)
+            search_input = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div[1]/div/input"))  # Replace with actual search input's XPath
+            )
+
+            # Type the country code or country name in the search box
+            search_input.send_keys("Bangladesh")  # Replace with the country code you want to search for
+            time.sleep(2)  # Wait for search results to filter
+
+            # After typing, select the country code from the dropdown options
+            country_option = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div[2]/div"))  # Replace with the XPath for the country option you want to select
+            )
+            country_option.click()
+
+            # Optional: wait for some time to see the action
+            time.sleep(2)   
+        
+    else:
+            # Wait until the dropdown is visible, and click it to open
+            dropdown_element = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div/div/div"))  # Replace with your dropdown's XPath
+            )
+            dropdown_element.click()
+
+            # Wait for the search input box to appear inside the dropdown (if any)
+            search_input = WebDriverWait(driver, 20).until(
+                EC.presence_of_element_located((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div[1]/div/input"))  # Replace with actual search input's XPath
+            )
+
+            # Type the country code or country name in the search box
+            search_input.send_keys("Bangladesch")  # Replace with the country code you want to search for
+            time.sleep(2)  # Wait for search results to filter
+
+            # After typing, select the country code from the dropdown options
+            country_option = WebDriverWait(driver, 20).until(
+                EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[2]/div/div/div/div[3]/form/div[1]/div[2]/div/div[6]/div/div/div[2]/div"))  # Replace with the XPath for the country option you want to select
+            )
+            country_option.click()
+
+            # Optional: wait for some time to see the action
+            time.sleep(2)  
+
+
+
+
+
+ 
 
 
 #--------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
