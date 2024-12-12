@@ -1,0 +1,13 @@
+{
+  "type": "service_account",
+  "project_id": "copper-tracker-444016-a3",
+  "private_key_id": "ff77dc6884164f898fcee5a6575f4f4af90123f2",
+  "private_key": "-----BEGIN PRIVATE KEY-----\nMIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCM6cbEzAUit8S6\nToRvi2oAXIs881jtl122jfIB1G49CFsUW6ERgHfZvRPbNgOvPbVkoq/3LA61lUba\n9VyfHhB97Xp0p2vqv6KrrhR7XdiXBKafoOqzukaoWhQxcToaDQBmKTSz1kRQsKPh\nlRiAlVTC9taxeLQjfOMcy2DnI8WU4/2iJd1xbO0H6uaO0DhIzEeJcnUiuia95S9b\nfhkpFBL6VTDwqso0zb85LIxBCUgXZw9qiUd8x6L0ei5DxrhjJyXAdcz0AZ8OaXlQ\nO2NevmTtPSY9uIxpaM8THw+iLXU5gSufC+8dRBWuq9tI04VvPsa8Hm/1fpHFbS/Q\nX49Ddxz9AgMBAAECggEABvWGUhKY//+EiRvsE/MrZhRWnF5l6lPtoPX5I/MpCj1s\nUWt7X058J3DG9y4/d9XWbGomwmWhXgE0NDI7uQWmfwWYT4ReLW7POpHODqVSQeu3\noTi0ppwg4FsUgLhCDDvPT3xM+e2vcYRhD44KB/2ip5SXrUDpX+WgyhEBj+C3IbTJ\nphCTjiMc4EvxqCMrVYy25McAI8wxW+dbOlW6C26czmxRgNz3huXfZEh9dg9sdAPk\nXgx/hjvkruuno3wqD+qxMu1GsDz9silOzZFwIbfTE0Ort1ulB5JZJj2HaucB1auZ\nMk3WyOeni+Qx+kuFKaAQ9ijH7S1N10/XGnvNz90FYQKBgQDGLKg/mqdcZqspHtjQ\nqWT2fPxCQ1hGuLQSGpJYYFeKHmuZkvqQQYKQPVKiFUYVzEsdrK6u6q17Ow1X2sZ+\nSGF7J7EvszsHkcwpr2xafYgb1rFKxuQl/OZnkbbDH4dEjcdOI3970nlnY07NyOlQ\nPKMMnNwB2hWKnzuo+kaOiEq6IQKBgQC2B8lu+/QGrJ0LMEt/viRBJP1hQijoO2Ub\n/HKFoLHquwnPD7crS55ejd1gKHZ3Rrz5B5n+zarz/Zr1eHW9YJmj9NtzXTWsezJy\n69hOWK7dEbcXW28batn44hFuwfVGEmraOkWlYvk0x6gSfXTcAycMHraHgAjnx09z\njQbwZdefXQKBgF/dhHpYPvO0+sGGmY2/FAclCQao+1Ai04Ead4bm/BHli1mcPzd/\naUCLWajsr52l2QR+33XgMpG1TEwemfzG2Nkxp0YS5tBPmDrmEH1p0mjdH6Czu/Qg\ndfjOBWI4oz/nce17wJTOiUoZQSrNMQhOfPWB/++pZthLFRo2D+GtTrDhAoGABwbx\n7cjoOMG9Jkts/rd2atVkurZ1IdH5K0VpnmL/u1IRJN80cQVwTbIoU6f8OsqOTQbQ\nGRgTe2vU6ZkG4pKyG7Q+LIvyoH/5CJq2NQATcBFZAhvThDlxxLvldGMkdtoLKfWJ\n7sKNYE483MnfEwdEIKGm5kA5F8mH9awCEpG76zkCgYAuvtO/rljryuD1XCtJxTP3\nyJWmFKNjOUqzE7oFp73PTyQkGKKvV9pRzeHr/mTke4FyXI5QWYfhTdOowHjGT0FD\nJ6pS6TQkucmex7hCpyx4LDXhyIqz0ddaxFWaCUR21ViedhlhIohhviop4vL0dSC6\nG/dvlisaxbfLBEUI/XnaRA==\n-----END PRIVATE KEY-----\n",
+  "client_email": "zytrack@copper-tracker-444016-a3.iam.gserviceaccount.com",
+  "client_id": "113058833889326302849",
+  "auth_uri": "https://accounts.google.com/o/oauth2/auth",
+  "token_uri": "https://oauth2.googleapis.com/token",
+  "auth_provider_x509_cert_url": "https://www.googleapis.com/oauth2/v1/certs",
+  "client_x509_cert_url": "https://www.googleapis.com/robot/v1/metadata/x509/zytrack%40copper-tracker-444016-a3.iam.gserviceaccount.com",
+  "universe_domain": "googleapis.com"
+}
