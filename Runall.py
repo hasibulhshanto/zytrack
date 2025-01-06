@@ -9,3 +9,4 @@ processes = [subprocess.Popen(["python", script]) for script in scripts]
 # Wait for all processes to complete
 for process in processes:
     process.wait()
+    Koli

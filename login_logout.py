@@ -78,6 +78,7 @@ try:
         # Wait until the sign-out button is clickable and click it
         signout_button = WebDriverWait(driver, 20).until(
             EC.element_to_be_clickable((By.XPATH, "//*[@id='app']/div/div[2]/div/div[1]/div[2]/div[3]/div/ul/li[4]"))
+            
         )
         signout_button.click()
 
